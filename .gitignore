@@ -1,9 +1,6 @@
 .DS_Store
-# 忽略node_mudules文件或文件夹
 node_modules 
-# 仅忽略根目录下的dist目录，不包含其他同名的文件
 /dist 
-# dist/ 忽略dist文件夹下的所有文件
 
 # local env files
 .env.local
@@ -17,9 +14,7 @@ pnpm-debug.log*
 
 # Editor directories and files
 .idea
-# 忽略.vscode文件夹
 .vscode
-# 忽略所有以.suo结尾的文件
 *.suo
 *.ntvs*
 *.njsproj
