@@ -1,0 +1,730 @@
+/* 预设字体文件 */
+@font-face{
+    font-family: 'FZXS_12'; 
+    src: url('/public/assets/fonts/FZXS_12.TTF');	
+}
+
+@font-face{
+    font-family: 'FZXS_1';
+    src:url('/public/assets/fonts/FZXS_1.TTF')	
+}
+
+
+/* 定义全局变量 */
+:root{
+    --nav_height:60px;
+    --grey:#9e9e9e;
+}
+
+*{
+    /* 让文字不可选中，坏！ */
+    user-select: none;
+}
+
+/* 给canvas一个边框，方便测试 */
+canvas{
+    border:1px solid #b8b8b8;
+}
+
+/* 一些markdown样式化 */
+dark{
+    display: inline-block;
+    color: white;
+    background-color: #000;
+    font-family: FZXS_12;
+    font-size: 12px;
+    /* padding: 2px; */
+}
+
+pre{
+    padding:5px 10px;
+    background-color: rgb(51, 51, 51);
+    overflow: scroll;
+}
+
+pre code{
+    color:white
+}
+
+code{
+    font-size:14px;
+    display: inline;
+    font-family: consolas;
+    color:rgb(150, 82, 82);
+}
+
+blockquote{
+    background-color: #dedede;
+    padding:5px 10px;
+    margin: 0;
+    border-left: 5px solid #4a5472
+}
+
+/* selection伪类，改变选中文字时的效果 */
+::selection{
+    background: #babcc4;
+    color:white;
+}
+
+/* 蝙蝠背景图 */
+body{
+    background-image: url(/public/assets/bat1.png);
+    background-attachment: fixed;
+    /* background-color: #dedede; */
+    margin: 0;
+}
+
+.catalog ul{
+    padding: 0;
+}
+.catalog ul li{
+    list-style-type: none;
+}
+
+.display-block{
+    display:block;
+}
+
+.block{
+    display:block;
+    /* 计数器 */
+    counter-reset: quescount;
+    /* margin-top: - var(--nav_height);
+    padding-top: var(--nav_height); */
+}
+
+/* 暗锚点解决锚点跳转时会被导航遮住的问题 */
+.header-anchor{
+    padding-top: 76px;
+    margin-top: - 76px;
+}
+
+.ans::before{
+    content:"答：";
+    font-weight: bold;
+}
+
+/* CSS计数器自动生成问题序号 */
+.ques::before{
+    content:counter(quescount) ". ";
+    counter-increment: quescount;
+}
+
+p{
+    font-family:'Times New Roman', Times, 等线;
+    font-size:14px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+p.notify{
+    display: block;
+    /* box-sizing: border-box; */
+    padding:10px 5px;
+    background-color:#e9e9e9;
+    margin: inherit auto;
+}
+
+
+button.test{
+    font-family: FZXS_12;
+    font-size: 12px;
+}
+
+.ico{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    
+}
+
+/* 在导航栏中使用全局变量nav_height */
+nav{
+    height: var(--nav_height);
+    line-height: var(--nav_height);
+    /* 随着滚动始终保持在页面上方*/
+    position:sticky; top:0;
+    box-shadow: 2px 2px 3px #9e9e9e;
+    font-family: FZXS_12;
+    font-size: 20px;
+    padding: 0px 20px 0px 0;
+    /* 防止被absolute定位的下拉框遮住 */
+    z-index: 1003;
+    text-align: center;
+    /* 很重要，让子元素横向排列（当然也可以令子元素显示为inline-block）*/
+    display:flex;
+    background-color:white;
+}
+
+
+
+form{
+    font-family: 等线;
+}
+
+input[type="text"]:focus{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    outline:none;
+}
+
+#uinfo{
+    text-align: center;
+    line-height: 50px;
+    
+}
+
+#uinfo input[type='text']{
+    font-size: 14px;
+    border-radius: 20px;
+    padding:10px;
+}
+
+#search{
+    position:absolute;
+    right:0;
+    top:10px;
+    margin-right: 10px;
+}
+
+#search input{
+    box-sizing: border-box;
+    width:40px;
+    border-radius: 20px;
+    height: 40px;
+    background-image: url(/public/src/assets/search.svg);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 8px;
+    padding-left: 35px;
+    float: right;
+    transition: width 0.4s ease-in-out;
+}
+
+#search input[type=text]:hover{
+    width:250px;
+}
+
+#search input[type=text]:focus{
+    width:250px;
+}
+.title1{
+    font-family: 'FZXS_12';
+    text-align: center;
+    font-size:5vw;
+    line-height: 80px;
+    background-image: url(/public/assets/City.png);
+    color: white;
+    margin:0;
+    padding:50px 0;
+}
+
+.title2{
+    font-family: 'FZXS_12';
+    width: 100%;
+    margin:2vw 0vw 4vw 0;
+    background-color: var(--grey);
+    color: white;
+    display: inline;
+    padding:10px;
+}
+
+
+.bold{
+    font-weight: bold;
+}
+
+.title2::before{
+    content: ">> "
+}
+
+.mybutton{
+    /* box-sizing: border-box; */
+    /* display: inline-block; */
+    cursor: pointer;
+    display: inline-block;
+    /* width:120px; */
+    text-align: center;
+    padding:10px 20px;
+    border-radius: 30px;
+    border:2px solid rgb(50, 50, 50);
+    border-bottom: 8px solid rgb(50, 50, 50);
+    background-color: #fff;
+    font-family: FZXS_12;
+    margin: 0 auto;
+}
+
+.hover-bigger:hover{
+    animation: bigger .1s forwards;
+}
+
+.hover-spining:hover{
+    animation: spining 1.5s infinite linear;
+}
+
+.senti .mybutton{
+    width:160px;
+    margin: 20px auto 0 auto;
+    height: 60px;
+    font-size: 16px;
+}
+
+.mybutton:hover{
+    background-color: #c1c1c1;
+    /* 动画效果，跳动的按钮 */
+    /* animation: buttonBlick 0.5s infinite; */
+}
+
+.mybutton#setLee{
+    position: fixed;
+    left:10px;
+    bottom: 10px;
+}
+
+/* 人物 */
+.char_div{
+    align-self: center;
+    position: fixed;	        /* 设置fixed固定定位 */
+    bottom: 60px;		/* 距离浏览器窗口下边框20px */
+    left: 20px;		/* 距离浏览器窗口左边框20px */
+    z-index: 1;
+    display: none; 
+}
+
+/* 对话框，待改进 */
+.tooltip{
+    font-family: FZXS_12;
+    padding:0 10px 0 20px;
+    position: absolute;	     /* 相对于父元素定位 */
+    bottom: 0px;		/* 距离浏览器窗口下边框20px */
+    left: 160px;		/* 距离浏览器窗口右边框20px */
+    width: 150px;
+    
+    background-color: rgb(71, 71, 71);
+    color:white;
+    border-radius: 15px;
+    visibility: hidden;
+    opacity:0;
+    transition: opacity 0.5s;
+
+}
+
+.char_div:hover .tooltip{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* 带箭头的tooltip */
+.tooltip::after{
+    content:"";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -30px;
+    border-width:10px;
+    border-style: solid;
+    border-color: transparent rgb(71,71,71) transparent transparent;
+    transform: scale(2,1);
+    /* border-bottom: ; */
+}
+
+
+p.google{
+    font-family: ZCOOL XiaoWei;
+    line-height: 20px;
+    padding: 5px 20px 5px;
+    border-left: 5px solid #4a5472 ;
+    background-color: #f1f1f1;
+    height: 150px;
+    overflow: scroll;
+}
+
+a{
+    text-decoration: none; /*取消下划线*/
+    color:#000;
+    font-family: FZXS_12;
+    /* 改变鼠标光标样式 */
+    cursor: pointer;
+    padding-bottom: 2px;
+    /* border-bottom: 2px dashed #4a5472 */
+}
+
+li a:hover, p a:hover, .dropdown a:hover{
+    background-color: #e9e9e9;
+}
+
+.senti input{
+    width:100%;
+    height: 100px;
+    font-size: 30px;
+}
+
+.workspace{
+    margin-top:30px;
+}
+
+.mainbody{
+    display: flex;
+    /* 在必要时换行，注意对响应式窗口很重要 */
+    flex-wrap: wrap;
+    min-width: 460px;
+    padding:0 10px;
+    justify-content: center;
+    /* padding:0 30px; */
+}
+
+.flex-section{
+    display: flex;
+    justify-content: center;
+    grid-gap:10px;
+}
+
+.grid-section{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.grid-section .mybutton{
+    margin:10px 5px;
+}
+
+.wid100{
+  width:100%
+}
+
+.column{
+    box-sizing: border-box;
+    float: left;
+    padding:0 5px;
+    clear:both;
+}
+
+.catalog{
+    width: 20%;
+    min-width: 120px;
+    display: block;
+    /* position: sticky;
+    left:0; */
+    top:100px;
+}
+
+.content{
+    width: 80%;
+    display: block;
+}
+
+.about{
+    width:80%;
+    display: block;
+}
+
+/* 响应式布局，必须声明在原尺寸css后面，否则会出错 */
+@media screen and (max-width:800px){
+    .catalog,.content,.about{width:100%}
+}
+
+
+.block{
+    /* width:50em; */
+    background-color: white;
+    box-shadow: 1px 1px 3px #b8b8b8;
+    padding: 0px 30px 30px 30px;
+    margin: 20px 0px;
+}
+
+
+/* 总体style，字体、边框、尺寸 */
+.mytable{
+    border:1px solid;
+    font-family: FZXS_12;
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* 表头颜色 */
+.mytable th{
+    background-color: #dedede;
+    /* border-bottom: 1px solid #000; */
+}
+
+/* 行内边距及文字对齐方向 */
+/* 可以通过padding、line-height设置 */
+.mytable th,td{
+    padding:5px;
+    text-align: left;
+    /* 重要！换行 */
+    word-wrap:break-word;
+}
+
+/* 鼠标悬停时改变背景色 */
+.mytable tr:hover{
+    background-color: #bcbcbc;
+}
+
+/* 实现“斑马纹” 效果
+.mytable tr:nth-child(even){
+    background-color: #e3e3e3
+} */
+
+.hide{
+    width: 30px;
+    height: 15px;
+    float: right;
+    margin-top: 15px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.paging{
+    display: flex;
+    background-color: white;
+    padding: 10px 0;
+}
+
+.pages{
+    display: block;
+    margin: 0 auto;
+    position:sticky;
+    bottom:0;
+}
+
+.page{
+    display: inline-block;
+    
+    width: 50px;
+    height: var(--nav_height);
+    text-align: center;
+    line-height: var(--nav_height);
+}
+
+
+.page:hover{
+    background-color:#e3e3e3;
+}
+
+.footer{
+    text-align: center;
+    margin: 20px 0;
+    font-family: FZXS_12;
+}
+
+/* 网格布局实验 */
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    padding:10px;
+    background-color: rgb(227, 227, 227);
+    width:50%;
+}
+
+.grid-item{
+    background-color:var(--grey) ;
+    text-align: center;
+    font-size: 30px;
+    color:rgba(0,0,0,1)
+    /* width:140px; */
+    /* height: 30px; */
+}
+
+.cols-2{
+    grid-column: 1 / 3;
+}
+
+.rows-2{
+    grid-area: 1 / 3 / span 2 / 3;
+}
+
+
+/* loading动画 */
+.spining{
+    animation: spining 1.5s infinite linear;
+}
+
+
+
+/* about.html的css样式 */
+.profile_block{
+    display: block;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    float: left;
+    border-radius: 50%;
+    /* 这个overflow非常关键 */
+    overflow: hidden;
+}
+
+.profile{
+    /* border-radius: 50%; */
+    width: inherit;
+    height: inherit;
+    /* 图像or视频的缩放方式 */
+    object-fit: cover;
+    display: inline-block;
+    /* overflow: hidden; */
+    transition: opacity .4s;
+}
+
+.overlay{
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0px;
+    width: 100%;
+    transition: height .4s;
+    background-color: rgba(0,0,0,0.6);
+    line-height: 50px;
+    text-align: center;
+    color:#fff;
+    padding-bottom: 0;
+    z-index:1002;
+    /* cursor:pointer; */
+}
+
+/* 模糊蒙版 */
+.blur{
+    width:100%;
+    height:100%;
+    z-index:1001;
+    position:absolute;top:0;left:0;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    cursor:pointer;
+    opacity:0;
+    transition: opacity .2s;
+}
+
+.blur:hover{
+    opacity:1
+}
+
+.profile_block:hover .overlay{
+   height: 50px;
+}
+
+.profile_block:hover .profile{
+    opacity: 0.5;
+}
+
+.basicInfo{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.oneLine{
+    font-size: 20px;
+    margin-bottom: 24px;
+    display: block;
+}
+
+fn{
+    display: inline-block;
+    font-family: FZXS_12;
+    color:white;
+    background-color: var(--grey);
+    width: 100px;
+    padding:10px;
+    text-align: center;
+    margin: 0 20px;
+}
+
+/* 尝试整个好看的登录界面 */
+input:focus{
+    outline: none;
+}
+
+.login{
+    width:400px;
+    height: 600px;
+    border:1px solid #babcc4;
+    display: flex;
+    flex-direction: column;
+    background: url(/public/assets/City.png);
+}
+
+.login h2{
+    font-size: 40px;
+    text-align: center;
+    font-family: FZXS_12;
+    padding: 80px 0;
+    margin: 0;
+}
+
+.login input{
+    box-sizing:border-box;
+    display: block;
+    margin: 0px auto 30px auto;
+    width: 250px;
+    line-height: 36px;
+    font-size: 16px;
+    border:none;
+    box-shadow: 0px 2px 0px #9e9e9e;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-family: FZXS_12;
+}
+
+.login .mybutton{
+    display: inline-block;
+    margin: 0px auto;
+    width: 150px;
+}
+
+
+/* 动画 */
+
+
+
+/* 旋转 */
+@keyframes spining{
+    to{transform: rotate(360deg)}
+}
+
+/* 放大 */
+@keyframes bigger {
+    to{transform: scale(1.1,1.1)}
+}
+
+/* 按钮动画*/
+@keyframes buttonBlick{
+    0%,100%{border-bottom: 8px solid #000;}
+    50%{border-bottom: 3px solid #000;}
+}
+
+/* 抖动动画 */
+.lanren:hover {
+	animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	perspective: 1000px;
+}
+@keyframes shake {
+	10%, 90% {
+		transform: translate3d(-1px, 0, 0);
+	}
+	20%, 80% {
+		transform: translate3d(2px, 0, 0);
+	}
+	30%, 50%, 70% {
+		transform: translate3d(-4px, 0, 0);
+	}
+	40%, 60% {
+		transform: translate3d(4px, 0, 0);
+	}
+}
+
+/* 标题画面出现动画 */
+
+@keyframes appear {
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+        transform: translateY(0)
+    }
+}
