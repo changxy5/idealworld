@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'siyuan-Light';
+  font-weight: 300;
+  src:url('/src/assets/fonts/WDTdv-tCSkhtPqxVosieE.woff') format("woff"),
+  url("/src/assets/fonts/WDTdv-tCSkhtPqxVosieE.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'harmonyOS';
+  font-weight: 300;
+  src:url('/src/assets/fonts/harmonyOS.ttf') 
+}
+
+
+@font-face {
+  font-family: "siyuan-Regular";font-weight: 400;src: url("//at.alicdn.com/wf/webfont/ZeUQCjKYFhfO/ZtXa37__m19wlOSXbOX93.woff2") format("woff2"),
+  url("//at.alicdn.com/wf/webfont/ZeUQCjKYFhfO/eZETwB60nVWOVw88HOOsA.woff") format("woff");
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "yuyang-W02";font-weight: 400;src: url("//at.alicdn.com/wf/webfont/ZeUQCjKYFhfO/KVBRaXMTsHvbeMxgtQVJb.woff2") format("woff2"),
+  url("//at.alicdn.com/wf/webfont/ZeUQCjKYFhfO/9g3OdeYioU6LIH2Zx3pk0.woff") format("woff");
+  font-display: swap;
+}

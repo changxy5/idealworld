@@ -1,0 +1,30 @@
+@mixin docsLayout{
+  .main{
+  margin:40px 30px 0 30px;
+  .title{
+    font-size:30px;
+    border-left:2px solid #403E4E;
+    padding-left:10px;
+    opacity:0;
+    font-weight:600;
+    animation: fadeIn 1.5s ease-in-out 0s forwards;
+  }
+  .subtitle{
+    // padding-top:10px;
+    padding-left:15px;
+    font-size:16px;
+    opacity:0;
+    animation: fadeIn 1.5s ease-in-out 0s forwards;
+  }
+  .content{
+    margin-top:50px;
+    opacity:0;
+    color:#93A6B1;
+    animation: fadeIn 1.5s ease-in-out 0.5s forwards;
+    .date{
+      font-size: 12px;
+      color:#93A6B1
+    }
+  }
+}
+}

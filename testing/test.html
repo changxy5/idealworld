@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<body>
+  <h1>hello world</h1>
+  <div class="b0" style>
+    <div class="c c1">
+      <div class="b"></div>
+    </div>
+    <div class="c c2">
+      <div class="b"></div>
+    </div>
+    <div class="c c3">
+      <div class="b" style="font-size: 5px;">border,<br/>h,w</div>
+    </div>
+  </div>
+</body>
+
+<style>
+  /* 利用flexbox完成排版 */
+  .b0 {
+    position: relative;
+    /* width:500px; */
+    border: 1px solid #000;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .c {
+    /* margin-bottom: 10px; */
+    display: block;
+    /* height: 10px; */
+    width: 100%;
+    border: 1px #d8d8d8 solid;
+  }
+
+  .c2{
+    display: flex;
+    justify-content: start;
+  }
+
+  .c2{
+    display: flex;
+    justify-content: center;
+  }
+
+  .c3{
+    display: flex;
+    justify-content: end;
+  }
+
+  .b{
+    width: 50px;
+    height: 50px;
+    border: 1px #873333 solid;
+  }
+</style>
+
+<script>
+  // 深拷贝与浅拷贝
+  obj1 = { a: 1, b: 2, c: 3 }
+  obj2 = obj1 // 浅拷贝
+  obj2.a = 10
+  console.log('obj1:', obj1);
+  console.log('obj2:', obj2);
+
+  // 方法1(JSON.parse(),不推荐)
+  obj3 = JSON.parse(JSON.stringify(obj1))
+  obj3.a = 1
+  console.log('obj1:', obj1);
+  console.log('obj3:', obj3);
+  // 方法1的坑，不能处理undefined, null, Date, 正则，函数
+  obj4={a:undefined,b:null,c:()=>{console.log('hello')},d:{a1:0, a2:1}}
+  obj5 = JSON.parse(JSON.stringify(obj4))
+  console.log('obj5:',obj5); //{b: null,d:{a1: 0, a2: 1}}
+  
+  // 方法2-递归（推荐）
+  function deepCopy(obj){
+    // 如果不是对象类型，直接返回
+    if(typeof obj !=="object" || obj === null){
+      return obj
+    }
+    // 如果是对象类型，则继续进行以下操作：
+    // 1.判断目标是数组还是对象，决定返回值的类型
+    const copied = Array.isArray(obj)?[]:{}
+    // 2.对可递归的对象继续进行递归
+    for(let key in obj){
+      copied[key] = deepCopy(obj[key])
+    }
+    return copied
+  }
+  const o1={a:10,b:20,c:{a1:1,b1:2,c1:3},d:[0,1,2]}
+  o2 = deepCopy(o1)
+  o2.a=99;o2.c.a1=99;o2.d[0]=99
+  console.log('o1:',o1);
+  console.log('o2:',o2);
+
+</script>
